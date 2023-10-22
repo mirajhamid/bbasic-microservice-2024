@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.UUID;
+
 @ControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE)
 @Slf4j
@@ -29,8 +31,9 @@ public class GlobalErrorAdvice {
         log.error("internal exception occred error-code={}", e.getErrorCode());
         GeneralResponse generalResponse = new GeneralResponse();
         generalResponse.setStatusCode(e.getErrorCode());
-        generalResponse.setStatusDesc("This is a user exception");
-        generalResponse.setMessageId("12");
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(generalResponse);
+        generalResponse.setMessage(e.getErrorMessage());
+        generalResponse.setStatusDesc("internal error");
+        generalResponse.setMessageId(UUID.randomUUID().toString());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(generalResponse);
     }
 }

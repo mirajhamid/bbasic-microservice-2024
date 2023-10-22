@@ -16,7 +16,7 @@ public class UserDetail implements Serializable {
     @Serial
     private static final long serialVersionUID = -4883423532373541203L;
     private int userId;
-    private String fristName;
+    private String firstName;
     private String lastName;
     private int age;
     @JsonProperty("type")

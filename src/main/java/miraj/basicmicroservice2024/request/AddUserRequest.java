@@ -17,7 +17,8 @@ import java.io.Serializable;
 public class AddUserRequest implements Serializable {
     @Serial
     private static final long serialVersionUID = -8556062318656042957L;
-    private String fristName;
+    private String firstName;
     private String lastName;
     private int age;
+    private int type;
 }

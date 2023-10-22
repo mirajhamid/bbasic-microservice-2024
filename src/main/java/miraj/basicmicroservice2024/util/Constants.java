@@ -67,8 +67,20 @@ public final class Constants {
         }
     }
 
+    public static final class BaseEntityConstants {
+        public static final String CREATED_TS = "insert_ts";
+        public static final String MODIFIED_TS = "modified_ts";
+        public static final String MODIFIED_BY = "modified_by";
+        public static final String CREATED_BY = "created_by";
+        private BaseEntityConstants() {
+            throw new IllegalStateException(Global.UTILITY_CLASS);
+        }
+    }
+
     public static final class Global {
 
         public static final String UTILITY_CLASS = "Utility class";
     }
+
+
 }
